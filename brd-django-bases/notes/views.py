@@ -36,7 +36,22 @@ def get_notes(request):
 
 
 def note_detail(request, note_id):
-    note = get_object_or_404(Notesreal, pk=note_id)
-    return render(request, 'note_detail.html', {
-        'note': note
-    })
+    if request.method == 'GET':
+        note = get_object_or_404(Notesreal, pk=note_id)
+        form = CreateModelForm(instance=note)
+        return render(request, 'note_detail.html', {
+            'note': note,
+            'form': form
+        })
+    else:
+        try:
+            note = get_object_or_404(Notesreal, pk=note_id)
+            form = CreateModelForm(request.POST, instance=note)
+            form.save()
+            return redirect('getnotes')
+        except ValueError:
+            return render(request, 'note_detail.html', {
+                'note': note,
+                'form': form,
+                'error': 'Error no se pudo actualizar la nota.'
+            })
