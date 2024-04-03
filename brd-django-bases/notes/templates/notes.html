@@ -6,6 +6,15 @@
         <div class="sec-all-crud">
             <h1>Registra cualquier nota</h1>
         </div>
+
+        {{ error }}
+
+        <form action="/create-note/" method="POST">
+            {% csrf_token %}
+            {{ form }}
+
+            <button>Guardar</button>
+        </form>
     </section>
 
 {% endblock %}
