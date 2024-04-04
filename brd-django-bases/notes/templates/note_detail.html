@@ -1,0 +1,18 @@
+{% extends 'brd_source.html' %}
+
+{% block content %}
+
+    <h1>{{ note }}</h1>
+
+    {{ error }}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button>Actulizar</button>
+    </form>
+
+    <a href="/">Ir al home</a>
+
+{% endblock %}
