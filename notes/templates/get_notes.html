@@ -3,16 +3,24 @@
 {% block content %}
 
 
-    <h1>Showing Notes</h1>
+    <div class="tus-notas">
+        <div class="todo-nota">
 
-    <ul>
-        {% for note in notes %}
-        <a href='{% url 'notedetail' note.id %}'>
-            <li>
-                {{ note.nota }}
-            </li>
-        </a>
-        {% endfor %}
-    </ul>
-        
+            <h1>Tus notas</h1>
+            
+            <span></span>
+        </div>
+
+        <div class="lista-notas">
+            <ul>
+                {% for note in notes %}
+                <a href='{% url 'notedetail' note.id %}'>
+                    <li>
+                        {{ note.nota }}
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

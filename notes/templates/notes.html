@@ -11,9 +11,10 @@
 
         <form action="/create-note/" method="POST">
             {% csrf_token %}
+
             {{ form }}
 
-            <button>Guardar</button>
+            <button class="note-guardar">Guardar</button>
         </form>
 
 
