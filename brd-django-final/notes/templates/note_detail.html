@@ -1,0 +1,24 @@
+{% extends 'brd_source.html' %}
+
+{% block content %}
+
+<section class="sec-crud">
+    <div class="sec-all-crud">
+        <h1>{{ note }}</h1>
+    </div>
+
+    {{ error }}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button class="note-guardar">Actualizar</button>
+    </form>
+
+
+    <a href="/">Ir al home</a>
+</section>
+
+{% endblock %}
